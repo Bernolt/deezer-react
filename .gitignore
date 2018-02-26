@@ -1,0 +1,22 @@
+# dependencies
+node_modules
+
+# dist folder
+dist
+
+# dotenv
+.env
+
+# Logs
+logs
+*.log*
+
+# IDEA/Webstorm project files
+.idea
+*.iml
+
+#VSCode metadata
+.vscode
+
+# Mac files
+.DS_Store

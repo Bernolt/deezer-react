@@ -9,5 +9,5 @@ render(
   <AppContainer>
     <div>Hello world</div>
   </AppContainer>,
-  document.getElementById('app')
+  document.getElementById('app'),
 );

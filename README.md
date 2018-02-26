@@ -17,3 +17,5 @@ I enable `save-exact` by default, so all devs are using the exact same version o
 Heavily inspired by [React Slingshot](https://github.com/coryhouse/react-slingshot), but stripped down the stuff I don't need or understand for now.
 Not using React scripts from [Create React App](https://github.com/facebook/create-react-app),
 because it's too limited. I mean, no CSS pre-processor?
+### ESLint
+I really like the [Airbnb style guide](https://github.com/airbnb/javascript), because it has made me a better developer.

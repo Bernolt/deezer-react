@@ -2,8 +2,6 @@
 
 ## Notes
 A Git commit template I personally like to follow: [link](https://gist.github.com/adeekshith/cd4c95a064977cdc6c50)
-
-## Installation
 ### Watchman
 Jest uses Watchman by default, to install: `brew install watchman`
 ### EditorConfig
@@ -19,3 +17,17 @@ Not using React scripts from [Create React App](https://github.com/facebook/crea
 because it's too limited. I mean, no CSS pre-processor?
 ### ESLint
 I really like the [Airbnb style guide](https://github.com/airbnb/javascript), because it has made me a better developer.
+
+## Installation
+### Run app
+```
+npm start
+```
+### Build app
+```
+npm run build
+```
+### Test app
+```
+npm test
+```

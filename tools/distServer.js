@@ -18,10 +18,8 @@ browserSync({
   server: {
     baseDir: 'dist',
   },
-
-  files: [
-    'src/*.html',
-  ],
-
+  watch: true,
+  ignore: '**/*.js',
+  ghostMode: false,
   middleware: [historyApiFallback()],
 });

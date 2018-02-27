@@ -13,7 +13,7 @@ export default {
     './src/webpack-public-path',
     'react-hot-loader/patch',
     'webpack-hot-middleware/client?reload=true',
-    path.resolve(__dirname, 'src/index.js'), // Defining path seems necessary for this to work consistently on Windows machines.
+    path.resolve(__dirname, 'src/index'), // Defining path seems necessary for this to work consistently on Windows machines.
   ],
   target: 'web',
   output: {
@@ -29,7 +29,7 @@ export default {
     new webpack.HotModuleReplacementPlugin(),
     new webpack.NoEmitOnErrorsPlugin(),
     new HtmlWebpackPlugin({ // Create HTML file that includes references to bundled CSS and JS.
-      template: 'src/index.ejs',
+      template: 'src/index.html',
       minify: {
         removeComments: true,
         collapseWhitespace: true,

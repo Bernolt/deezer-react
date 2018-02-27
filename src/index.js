@@ -11,14 +11,21 @@ import './styles/main.scss';
 
 const store = configureStore();
 
-const renderRoot = () => render(
+render(
   <AppContainer>
     <Root store={store} history={history} />
   </AppContainer>,
   document.getElementById('root'),
 );
-renderRoot();
 
 if (module.hot) {
-  module.hot.accept('./components/Root', renderRoot());
+  module.hot.accept('./components/Root', () => {
+    const NewRoot = require('./components/Root').default; // eslint-disable-line global-require
+    render(
+      <AppContainer>
+        <NewRoot store={store} history={history} />
+      </AppContainer>,
+      document.getElementById('root'),
+    );
+  });
 }

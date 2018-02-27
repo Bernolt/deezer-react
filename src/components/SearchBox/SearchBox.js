@@ -20,6 +20,7 @@ const propTypes = {
 };
 
 function getSuggestionValue(suggestion) {
+  // console.log('clicked suggestion:', suggestion);
   return suggestion.name;
 }
 

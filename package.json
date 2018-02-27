@@ -35,6 +35,7 @@
   "homepage": "https://github.com/koenoe/deezer-react#readme",
   "dependencies": {
     "react": "16.2.0",
+    "react-autosuggest": "9.3.4",
     "react-dom": "16.2.0",
     "react-redux": "5.0.7",
     "react-router-dom": "4.2.2",

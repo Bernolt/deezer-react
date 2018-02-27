@@ -4,9 +4,11 @@ import Autosuggest from 'react-autosuggest';
 
 import './SearchBox.scss';
 
-// const defaultProps = {
-//   foo: null,
-// };
+const defaultProps = {
+  value: '',
+  suggestions: [],
+  isLoading: false,
+};
 
 const propTypes = {
   value: PropTypes.string.isRequired,
@@ -57,7 +59,7 @@ function SearchBox(props) {
   );
 }
 
-// SearchBox.defaultProps = defaultProps;
+SearchBox.defaultProps = defaultProps;
 SearchBox.propTypes = propTypes;
 
 export default SearchBox;

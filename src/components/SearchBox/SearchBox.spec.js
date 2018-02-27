@@ -1,21 +1,20 @@
 import React from 'react';
 import { shallow } from 'enzyme';
+import Autosuggest from 'react-autosuggest';
 import SearchBox from './SearchBox';
 
 describe('<SearchBox />', () => {
-  let wrapper;
-  beforeEach(() => {
-    wrapper = shallow(<SearchBox />);
-  });
+  const props = {
+    value: '',
+    suggestions: [],
+    isLoading: false,
+    onChange: jest.fn(),
+    onSuggestionsFetchRequested: jest.fn(),
+    onSuggestionsClearRequested: jest.fn(),
+  };
 
-  // it('should contain an empty div', () => {
-  //   const actual = wrapper.find('div').text();
-  //   const expected = 'Searchbox here';
-
-  //   expect(actual).toEqual(expected);
-  // });
-
-  it('should contain a div `.search-box`', () => {
-    expect(wrapper.find('.search-box').length).toBe(1);
+  it('should contain <Autosuggest />', () => {
+    const wrapper = shallow(<SearchBox {...props} />);
+    expect(wrapper.find(Autosuggest).length).toEqual(1);
   });
 });

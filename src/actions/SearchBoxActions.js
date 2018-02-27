@@ -13,9 +13,9 @@ export function clearSuggestions() {
   };
 }
 
-export function loadSuggestionsBegin() {
+export function fetchSuggestionsRequest() {
   return {
-    type: types.LOAD_SUGGESTIONS_BEGIN,
+    type: types.FETCH_SUGGESTIONS_REQUEST,
   };
 }
 
@@ -107,9 +107,9 @@ function getMatchingLanguages(value) {
   return languages.filter(language => regex.test(language.name));
 }
 
-export function loadSuggestions(value) {
+export function fetchSuggestions(value) {
   return (dispatch) => {
-    dispatch(loadSuggestionsBegin());
+    dispatch(fetchSuggestionsRequest());
 
     // FIXME: Fake an AJAX call
     setTimeout(() => {

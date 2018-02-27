@@ -20,7 +20,7 @@ export default function searchBoxReducer(state = initialState, action = {}) {
         suggestions: [],
       };
 
-    case types.LOAD_SUGGESTIONS_BEGIN:
+    case types.FETCH_SUGGESTIONS_REQUEST:
       return {
         ...state,
         isLoading: true,

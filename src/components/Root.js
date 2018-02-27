@@ -3,14 +3,14 @@ import PropTypes from 'prop-types';
 import { ConnectedRouter } from 'react-router-redux';
 import { Provider } from 'react-redux';
 
-import SearchBox from './SearchBox';
+import SearchBoxContainer from '../containers/SearchBoxContainer';
 
 function Root(props) {
   const { store, history } = props;
   return (
     <Provider store={store}>
       <ConnectedRouter history={history}>
-        <SearchBox />
+        <SearchBoxContainer />
       </ConnectedRouter>
     </Provider>
   );

@@ -1,9 +1,11 @@
 /* global fetch */
 
-export default function callApi(url, options) {
+export const callApi = (url, options) =>
   fetch(url, options)
     .then(
-      response => (response.ok ? response.json() : Promise.reject(response.text())
+      response => (response.ok
+        ? response.json()
+        : Promise.reject(response.text())
       ),
       error => Promise.reject(error),
     )
@@ -12,4 +14,5 @@ export default function callApi(url, options) {
       error => ({ error }),
     )
     .catch(error => ({ error }));
-}
+
+export default callApi;

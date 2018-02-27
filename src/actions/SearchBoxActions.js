@@ -1,4 +1,6 @@
 import * as types from '../constants/ActionTypes';
+// import { SEARCH_ARTIST_URL } from '../constants/ApiConstants';
+import { callApi } from '../utils/ApiUtils';
 
 export function updateInputValue(value) {
   return {
@@ -27,93 +29,13 @@ export function updateSuggestions(suggestions, value) {
   };
 }
 
-// FIXME: temporary shizzle until end of file
-const languages = [
-  {
-    name: 'C',
-    year: 1972,
-  },
-  {
-    name: 'C#',
-    year: 2000,
-  },
-  {
-    name: 'C++',
-    year: 1983,
-  },
-  {
-    name: 'Clojure',
-    year: 2007,
-  },
-  {
-    name: 'Elm',
-    year: 2012,
-  },
-  {
-    name: 'Go',
-    year: 2009,
-  },
-  {
-    name: 'Haskell',
-    year: 1990,
-  },
-  {
-    name: 'Java',
-    year: 1995,
-  },
-  {
-    name: 'Javascript',
-    year: 1995,
-  },
-  {
-    name: 'Perl',
-    year: 1987,
-  },
-  {
-    name: 'PHP',
-    year: 1995,
-  },
-  {
-    name: 'Python',
-    year: 1991,
-  },
-  {
-    name: 'Ruby',
-    year: 1995,
-  },
-  {
-    name: 'Scala',
-    year: 2003,
-  },
-];
-
-function randomDelay() {
-  return 300 + (Math.random() * 1000);
-}
-
-function escapeRegexCharacters(str) {
-  return str.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
-}
-
-function getMatchingLanguages(value) {
-  const escapedValue = escapeRegexCharacters(value.trim());
-
-  if (escapedValue === '') {
-    return [];
-  }
-
-  const regex = new RegExp(`^${escapedValue}`, 'i');
-
-  return languages.filter(language => regex.test(language.name));
-}
-
 export function fetchSuggestions(value) {
-  return (dispatch) => {
+  return async (dispatch) => {
     dispatch(fetchSuggestionsRequest());
 
-    // FIXME: Fake an AJAX call
-    setTimeout(() => {
-      dispatch(updateSuggestions(getMatchingLanguages(value), value));
-    }, randomDelay());
+    const { json } = await callApi(`http://localhost:8001/search/artist?q=${value}&limit=5&offset=0`);
+    const collection = json.data || json;
+
+    dispatch(updateSuggestions(collection, value));
   };
 }

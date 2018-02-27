@@ -129,7 +129,7 @@ class SearchBox extends Component {
     };
 
     return (
-      <div className="searchbox">
+      <div className="search-box">
         <Autosuggest
           suggestions={suggestions}
           onSuggestionsFetchRequested={this.onSuggestionsFetchRequested}

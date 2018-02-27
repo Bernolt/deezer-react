@@ -15,7 +15,7 @@ describe('<SearchBox />', () => {
   //   expect(actual).toEqual(expected);
   // });
 
-  it('should contain a div `.searchbox`', () => {
-    expect(wrapper.find('.searchbox').length).toBe(1);
+  it('should contain a div `.search-box`', () => {
+    expect(wrapper.find('.search-box').length).toBe(1);
   });
 });

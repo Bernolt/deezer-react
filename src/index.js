@@ -1,13 +1,27 @@
 import React from 'react';
-import { render } from 'react-dom';
+import ReactDOM from 'react-dom';
 import { AppContainer } from 'react-hot-loader';
+import { Provider } from 'react-redux';
 
 import './index.scss';
-// require('./favicon.ico'); // Tell webpack to load favicon.ico
+import RootContainer from './containers/RootContainer';
+import configureStore from './store/configureStore';
 
-render(
-  <AppContainer>
-    <div>Hello world</div>
-  </AppContainer>,
-  document.getElementById('app'),
-);
+const render = (Component) => {
+  ReactDOM.render(
+    <AppContainer>
+      <Provider store={configureStore()}>
+        <Component />
+      </Provider>
+    </AppContainer>,
+    document.getElementById('root'),
+  );
+};
+
+render(RootContainer);
+
+if (module.hot) {
+  module.hot.accept('./containers/RootContainer', () => {
+    render(RootContainer);
+  });
+}

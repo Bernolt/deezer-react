@@ -17,6 +17,8 @@ Not using React scripts from [Create React App](https://github.com/facebook/crea
 because it's too limited. I mean, no CSS pre-processor?
 ### ESLint
 I really like the [Airbnb style guide](https://github.com/airbnb/javascript), because it has made me a better developer.
+### App structure
+Heavily inspired by [SoundRedux](https://github.com/andrewngu/sound-redux), but also looked at [Mern](https://github.com/Hashnode/mern-starter).
 
 ## Installation
 ### Run app

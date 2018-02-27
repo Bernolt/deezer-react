@@ -1,5 +1,5 @@
 import * as types from '../constants/ActionTypes';
-// import { SEARCH_ARTIST_URL } from '../constants/ApiConstants';
+import { SEARCH_ARTIST_URL } from '../constants/ApiConstants';
 import { callApi } from '../utils/ApiUtils';
 
 export function updateInputValue(value) {
@@ -33,7 +33,7 @@ export function fetchSuggestions(value) {
   return async (dispatch) => {
     dispatch(fetchSuggestionsRequest());
 
-    const { json } = await callApi(`http://localhost:8001/search/artist?q=${value}&limit=5&offset=0`);
+    const { json } = await callApi(SEARCH_ARTIST_URL.replace(':keyword', value));
     const collection = json.data || json;
 
     dispatch(updateSuggestions(collection, value));

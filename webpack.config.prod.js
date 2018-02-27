@@ -9,7 +9,7 @@ import autoprefixer from 'autoprefixer';
 
 const GLOBALS = {
   'process.env.NODE_ENV': JSON.stringify('production'),
-  'process.env.API_URL': 'http://localhost:8001',
+  'process.env.API_URL': JSON.stringify('http://localhost:8001'),
   __DEV__: false,
 };
 

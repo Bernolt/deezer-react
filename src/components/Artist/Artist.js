@@ -21,6 +21,13 @@ class Artist extends Component {
     fetchArtist(id);
   }
 
+  componentWillReceiveProps(nextProps) {
+    const { fetchArtist, id } = this.props;
+    if (nextProps.id !== id) {
+      fetchArtist(nextProps.id);
+    }
+  }
+
   render() {
     const {
       artist,

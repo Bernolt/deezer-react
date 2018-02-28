@@ -15,7 +15,7 @@ const AlbumListItem = ({
   album,
 }) => (
   <div className="album-list-item">
-    <img src={album.cover} alt="" />
+    <img src={album.cover_big} alt="" />
     <div className="album-list-item-title">{album.title}</div>
   </div>
 );

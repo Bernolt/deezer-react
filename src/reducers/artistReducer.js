@@ -3,9 +3,10 @@ import * as types from '../constants/ActionTypes';
 const initialState = {
   isLoading: false,
   artist: {},
+  albums: [],
 };
 
-export default function searchBoxReducer(state = initialState, action = {}) {
+export default function artistReducer(state = initialState, action = {}) {
   switch (action.type) {
     case types.FETCH_ARTIST_REQUEST:
       return {
@@ -17,6 +18,19 @@ export default function searchBoxReducer(state = initialState, action = {}) {
       return {
         ...state,
         artist: action.artist,
+        isLoading: false,
+      };
+
+    case types.FETCH_ALBUMS_REQUEST:
+      return {
+        ...state,
+        isLoading: true,
+      };
+
+    case types.FETCH_ALBUMS_SUCCESS:
+      return {
+        ...state,
+        albums: action.albums,
         isLoading: false,
       };
 

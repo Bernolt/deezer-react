@@ -12,6 +12,7 @@ const defaultProps = {
   albums: [],
   albumsLoading: false,
   selectedAlbum: null,
+  selectedAlbumTracks: [],
 };
 
 const propTypes = {
@@ -20,6 +21,7 @@ const propTypes = {
   artist: PropTypes.shape({}),
   albums: PropTypes.arrayOf(PropTypes.shape({})),
   selectedAlbum: PropTypes.shape({}),
+  selectedAlbumTracks: PropTypes.arrayOf(PropTypes.shape({})),
   artistLoading: PropTypes.bool,
   albumsLoading: PropTypes.bool,
   onAlbumSelected: PropTypes.func.isRequired,
@@ -45,6 +47,7 @@ class Artist extends Component {
       albums,
       albumsLoading,
       selectedAlbum,
+      selectedAlbumTracks,
       onAlbumSelected,
     } = this.props;
 
@@ -74,9 +77,10 @@ class Artist extends Component {
           />
         )}
         <hr />
-        {selectedAlbum &&
+        {selectedAlbum && selectedAlbumTracks.length > 0 &&
           <TrackList
-            tracks={selectedAlbum.tracks.data}
+            album={selectedAlbum}
+            tracks={selectedAlbumTracks}
           />
         }
       </div>

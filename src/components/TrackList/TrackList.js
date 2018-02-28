@@ -7,12 +7,15 @@ const defaultProps = {};
 
 const propTypes = {
   tracks: PropTypes.arrayOf(PropTypes.shape({})).isRequired,
+  album: PropTypes.shape({}).isRequired,
 };
 
 const TrackList = ({
   tracks,
+  album,
 }) => (
   <table className="track-list">
+    <caption>{album.title}</caption>
     <thead>
       <tr>
         <th>#</th>
@@ -23,11 +26,13 @@ const TrackList = ({
       </tr>
     </thead>
     <tbody>
-      {tracks.map((track, i) => (
+      {tracks.map(track => (
         <tr key={track.id}>
-          <td>{i + 1}</td>
+          <td>{track.track_position}</td>
           <td>{track.title}</td>
           <td>{track.artist.name}</td>
+          <td>{track.duration}</td>
+          <td>{album.release_date}</td>
         </tr>
     ))}
     </tbody>

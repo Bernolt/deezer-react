@@ -4,6 +4,14 @@
   position: relative;
   width: 100%;
   border-collapse: collapse;
+  margin: $gutter 0;
+
+  caption {
+    color: $brand-primary;
+    font-size: 24px;
+    text-align: left;
+    margin-bottom: $gutter;
+  }
 
   th, td {
     text-align: left;

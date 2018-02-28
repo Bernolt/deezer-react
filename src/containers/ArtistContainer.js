@@ -14,6 +14,7 @@ const mapStateToProps = (state, props) => {
     albums,
     albumsLoading,
     selectedAlbum,
+    selectedAlbumTracks,
   } = state.artistReducer;
 
   return {
@@ -22,6 +23,7 @@ const mapStateToProps = (state, props) => {
     albums,
     albumsLoading,
     selectedAlbum,
+    selectedAlbumTracks,
     id: Number.parseInt(props.match.params.id, 10),
   };
 };

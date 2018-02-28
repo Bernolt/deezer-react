@@ -6,6 +6,7 @@ const initialState = {
   albums: [],
   albumsLoading: false,
   selectedAlbum: null,
+  selectedAlbumTracks: [],
 };
 
 export default function artistReducer(state = initialState, action = {}) {
@@ -45,6 +46,17 @@ export default function artistReducer(state = initialState, action = {}) {
       return {
         ...state,
         selectedAlbum: action.album,
+      };
+
+    case types.FETCH_ALBUM_TRACKS_REQUEST:
+      return {
+        ...state,
+      };
+
+    case types.FETCH_ALBUM_TRACKS_SUCCESS:
+      return {
+        ...state,
+        selectedAlbumTracks: action.tracks,
       };
 
     default:

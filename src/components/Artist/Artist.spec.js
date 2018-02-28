@@ -8,6 +8,7 @@ describe('<Artist />', () => {
     artist: {},
     isLoading: false,
     fetchArtist: jest.fn(),
+    onAlbumSelected: jest.fn(),
   };
 
   it('should contain .artist-info', () => {

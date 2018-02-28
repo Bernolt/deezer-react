@@ -2,13 +2,16 @@ import PropTypes from 'prop-types';
 import React, { Component } from 'react';
 
 import AlbumList from '../AlbumList';
+import TrackList from '../TrackList';
 
 import './Artist.scss';
 
 const defaultProps = {
   artist: null,
-  isLoading: false,
+  artistLoading: false,
   albums: [],
+  albumsLoading: false,
+  selectedAlbum: null,
 };
 
 const propTypes = {
@@ -16,7 +19,10 @@ const propTypes = {
   id: PropTypes.number.isRequired,
   artist: PropTypes.shape({}),
   albums: PropTypes.arrayOf(PropTypes.shape({})),
-  isLoading: PropTypes.bool,
+  selectedAlbum: PropTypes.shape({}),
+  artistLoading: PropTypes.bool,
+  albumsLoading: PropTypes.bool,
+  onAlbumSelected: PropTypes.func.isRequired,
 };
 
 class Artist extends Component {
@@ -35,30 +41,44 @@ class Artist extends Component {
   render() {
     const {
       artist,
+      artistLoading,
       albums,
-      isLoading,
+      albumsLoading,
+      selectedAlbum,
+      onAlbumSelected,
     } = this.props;
-
-    if (isLoading) {
-      return <div className="loading-data">Loading data...</div>;
-    }
 
     return (
       <div>
-        <div className="artist-info">
-          <div className="artist-info-img">
-            <img src={artist.picture_big} alt="" />
+        {artistLoading ? (
+          <div className="loading-data">Loading artist...</div>
+        ) : (
+          <div className="artist-info">
+            <div className="artist-info-img">
+              <img src={artist.picture_big} alt="" />
+            </div>
+            <div className="artist-info-text">
+              <h1>{artist.name}</h1>
+              <p>Total albums: {artist.nb_album}</p>
+              <a href={artist.link} target="_blank">More information on Deezer</a>
+            </div>
           </div>
-          <div className="artist-info-text">
-            <h1>{artist.name}</h1>
-            <p>Total albums: {artist.nb_album}</p>
-            <a href={artist.link} target="_blank">More information on Deezer</a>
-          </div>
-        </div>
+        )}
         <hr />
-        <AlbumList
-          albums={albums}
-        />
+        {albumsLoading ? (
+          <div className="loading-data">Loading albums...</div>
+        ) : (
+          <AlbumList
+            albums={albums}
+            onAlbumSelected={onAlbumSelected}
+          />
+        )}
+        <hr />
+        {selectedAlbum &&
+          <TrackList
+            tracks={selectedAlbum.tracks.data}
+          />
+        }
       </div>
     );
   }

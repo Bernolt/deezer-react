@@ -51,7 +51,7 @@ class Artist extends Component {
           </div>
           <div className="artist-info-text">
             <h1>{artist.name}</h1>
-            <p>Total albums on Deezer: {artist.nb_album}</p>
+            <p>Total albums: {artist.nb_album}</p>
             <a href={artist.link} target="_blank">More information on Deezer</a>
           </div>
         </div>

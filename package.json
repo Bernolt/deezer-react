@@ -1,6 +1,6 @@
 {
   "name": "deezer-react",
-  "version": "0.0.1",
+  "version": "1.0.0",
   "description": "",
   "scripts": {
     "preinstall": "node tools/nodeVersionCheck.js",
@@ -35,6 +35,8 @@
   "homepage": "https://github.com/koenoe/deezer-react#readme",
   "dependencies": {
     "babel-polyfill": "6.26.0",
+    "moment": "2.20.1",
+    "moment-duration-format": "2.2.2",
     "react": "16.2.0",
     "react-autosuggest": "9.3.4",
     "react-dom": "16.2.0",

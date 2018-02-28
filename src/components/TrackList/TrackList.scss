@@ -1,0 +1,25 @@
+@import "../../styles/shared";
+
+.track-list {
+  position: relative;
+  width: 100%;
+  border-collapse: collapse;
+  margin: $gutter 0;
+
+  caption {
+    color: $brand-primary;
+    font-size: 24px;
+    text-align: left;
+    margin-bottom: $gutter;
+  }
+
+  th, td {
+    text-align: left;
+    padding: 10px;
+  }
+
+  td {
+    background: $component-bg;
+    border-bottom: 1px solid $body-bg;
+  }
+}

@@ -1,6 +1,8 @@
 import React from 'react';
 import { shallow } from 'enzyme';
+
 import Artist from './Artist';
+import AlbumList from '../AlbumList';
 
 describe('<Artist />', () => {
   const props = {
@@ -11,8 +13,17 @@ describe('<Artist />', () => {
     onAlbumSelected: jest.fn(),
   };
 
+  let wrapper;
+
+  beforeEach(() => {
+    wrapper = shallow(<Artist {...props} />);
+  });
+
   it('should contain .artist-info', () => {
-    const wrapper = shallow(<Artist {...props} />);
     expect(wrapper.find('.artist-info').length).toEqual(1);
+  });
+
+  it('should contain an <AlbumList />', () => {
+    expect(wrapper.find(AlbumList).length).toEqual(1);
   });
 });

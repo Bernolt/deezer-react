@@ -40,7 +40,7 @@ class Artist extends Component {
     } = this.props;
 
     if (isLoading) {
-      return <div>Loading data...</div>;
+      return <div className="loading-data">Loading data...</div>;
     }
 
     return (

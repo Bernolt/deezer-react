@@ -3,11 +3,14 @@ import React, { Component } from 'react';
 
 import './AlbumListItem.scss';
 
-const defaultProps = {};
+const defaultProps = {
+  className: '',
+};
 
 const propTypes = {
   album: PropTypes.shape({}).isRequired,
   onAlbumSelected: PropTypes.func.isRequired,
+  className: PropTypes.string,
 };
 
 class AlbumListItem extends Component {
@@ -22,11 +25,11 @@ class AlbumListItem extends Component {
   }
 
   render() {
-    const { album } = this.props;
+    const { album, className } = this.props;
 
     return (
       <div
-        className="album-list-item"
+        className={`album-list-item ${className}`}
         onClick={this.onClick}
         role="presentation"
       >

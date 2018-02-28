@@ -74,6 +74,7 @@ class Artist extends Component {
           <AlbumList
             albums={albums}
             onAlbumSelected={onAlbumSelected}
+            selectedAlbum={selectedAlbum}
           />
         )}
         <hr />

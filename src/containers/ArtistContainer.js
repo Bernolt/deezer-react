@@ -7,10 +7,11 @@ import { fetchArtist } from '../actions/ArtistActions';
 const ArtistContainer = props => <Artist {...props} />;
 
 const mapStateToProps = (state, props) => {
-  const { artist, isLoading } = state.artistReducer;
+  const { artist, albums, isLoading } = state.artistReducer;
 
   return {
     artist,
+    albums,
     isLoading,
     id: Number.parseInt(props.match.params.id, 10),
   };

@@ -1,0 +1,6 @@
+@import "../../styles/shared";
+
+.album-list {
+  @extend .row;
+  position: relative;
+}

@@ -1,17 +1,21 @@
 import PropTypes from 'prop-types';
 import React, { Component } from 'react';
 
+import AlbumList from '../AlbumList';
+
 import './Artist.scss';
 
 const defaultProps = {
   artist: null,
   isLoading: false,
+  albums: [],
 };
 
 const propTypes = {
   fetchArtist: PropTypes.func.isRequired,
   id: PropTypes.number.isRequired,
   artist: PropTypes.shape({}),
+  albums: PropTypes.arrayOf(PropTypes.shape({})),
   isLoading: PropTypes.bool,
 };
 
@@ -31,11 +35,12 @@ class Artist extends Component {
   render() {
     const {
       artist,
+      albums,
       isLoading,
     } = this.props;
 
     if (isLoading) {
-      return <div>Loading artist...</div>;
+      return <div>Loading data...</div>;
     }
 
     return (
@@ -51,6 +56,9 @@ class Artist extends Component {
           </div>
         </div>
         <hr />
+        <AlbumList
+          albums={albums}
+        />
       </div>
     );
   }

@@ -1,5 +1,7 @@
 import PropTypes from 'prop-types';
 import React from 'react';
+import moment from 'moment';
+import 'moment-duration-format';
 
 import './TrackList.scss';
 
@@ -31,8 +33,8 @@ const TrackList = ({
           <td>{track.track_position}</td>
           <td>{track.title}</td>
           <td>{track.artist.name}</td>
-          <td>{track.duration}</td>
-          <td>{album.release_date}</td>
+          <td>{moment.duration(track.duration, 'minutes').format('h:mm')}</td>
+          <td>{moment(album.release_date).format('YYYY')}</td>
         </tr>
     ))}
     </tbody>

@@ -1,13 +1,31 @@
+import 'babel-polyfill';
+
 import React from 'react';
 import { render } from 'react-dom';
 import { AppContainer } from 'react-hot-loader';
 
-import './index.scss';
-// require('./favicon.ico'); // Tell webpack to load favicon.ico
+import { configureStore, history } from './store/configureStore';
+import Root from './components/Root';
+
+import './styles/main.scss';
+
+const store = configureStore();
 
 render(
   <AppContainer>
-    <div>Hello world</div>
+    <Root store={store} history={history} />
   </AppContainer>,
-  document.getElementById('app'),
+  document.getElementById('root'),
 );
+
+if (module.hot) {
+  module.hot.accept('./components/Root', () => {
+    const NewRoot = require('./components/Root').default; // eslint-disable-line global-require
+    render(
+      <AppContainer>
+        <NewRoot store={store} history={history} />
+      </AppContainer>,
+      document.getElementById('root'),
+    );
+  });
+}

@@ -1,6 +1,7 @@
 import * as types from '../constants/ActionTypes';
 import { SEARCH_ARTIST_URL } from '../constants/ApiConstants';
 import { callApi } from '../utils/ApiUtils';
+import { navigateTo } from '../actions/RouterActions';
 
 export const updateInputValue = value => ({
   type: types.UPDATE_INPUT_VALUE,
@@ -20,6 +21,10 @@ export const updateSuggestions = (suggestions, value) => ({
   suggestions,
   value,
 });
+
+export const selectSuggestion = suggestion => (dispatch) => {
+  dispatch(navigateTo(`/artist/${suggestion.id}`));
+};
 
 export const fetchSuggestions = value => async (dispatch) => {
   dispatch(fetchSuggestionsRequest());

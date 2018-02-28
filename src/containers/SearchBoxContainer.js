@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 
-import { updateInputValue, fetchSuggestions, clearSuggestions } from '../actions/SearchBoxActions';
+import { updateInputValue, fetchSuggestions, clearSuggestions, selectSuggestion } from '../actions/SearchBoxActions';
 import SearchBox from '../components/SearchBox';
 
 const SearchBoxContainer = props => <SearchBox {...props} />;
@@ -26,6 +26,9 @@ function mapDispatchToProps(dispatch) {
     },
     onSuggestionsClearRequested() {
       dispatch(clearSuggestions());
+    },
+    onSuggestionSelected(event, { suggestion }) {
+      dispatch(selectSuggestion(suggestion));
     },
   };
 }

@@ -8,6 +8,7 @@ const defaultProps = {
   value: '',
   suggestions: [],
   isLoading: false,
+  onSuggestionSelected: () => {},
 };
 
 const propTypes = {
@@ -17,10 +18,10 @@ const propTypes = {
   onChange: PropTypes.func.isRequired,
   onSuggestionsFetchRequested: PropTypes.func.isRequired,
   onSuggestionsClearRequested: PropTypes.func.isRequired,
+  onSuggestionSelected: PropTypes.func,
 };
 
 function getSuggestionValue(suggestion) {
-  // console.log('clicked suggestion:', suggestion);
   return suggestion.name;
 }
 
@@ -38,6 +39,7 @@ function SearchBox(props) {
     onChange,
     onSuggestionsFetchRequested,
     onSuggestionsClearRequested,
+    onSuggestionSelected,
   } = props;
 
   const inputProps = {
@@ -52,6 +54,7 @@ function SearchBox(props) {
         suggestions={suggestions}
         onSuggestionsFetchRequested={onSuggestionsFetchRequested}
         onSuggestionsClearRequested={onSuggestionsClearRequested}
+        onSuggestionSelected={onSuggestionSelected}
         getSuggestionValue={getSuggestionValue}
         renderSuggestion={renderSuggestion}
         inputProps={inputProps}

@@ -11,7 +11,7 @@ import autoprefixer from 'autoprefixer';
 dotenv.config();
 
 if (process.env.DEPLOY) {
-  process.env.API_URL = `https://jsonp.afeld.me/?url=${process.env.PROXY_API_URL}`;
+  process.env.API_URL = `https://jsonp.afeld.me/?url=${encodeURIComponent(process.env.PROXY_API_URL)}`;
 }
 
 const GLOBALS = {

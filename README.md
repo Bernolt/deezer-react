@@ -1,4 +1,5 @@
 # Deezer React App
+[Demo](https://koenromers.com/deezer-react/)
 
 ## Notes
 A Git commit template I personally like to follow: [link](https://gist.github.com/adeekshith/cd4c95a064977cdc6c50)

@@ -1,15 +1,22 @@
 // For info about this file refer to webpack and webpack-hot-middleware documentation
 // For info on how we're generating bundles with hashed filenames for cache busting: https://medium.com/@okonetchnikov/long-term-caching-of-static-assets-with-webpack-1ecb139adb95#.w99i89nsz
 import webpack from 'webpack';
+import dotenv from 'dotenv';
 import ExtractTextPlugin from 'extract-text-webpack-plugin';
 import WebpackMd5Hash from 'webpack-md5-hash';
 import HtmlWebpackPlugin from 'html-webpack-plugin';
 import path from 'path';
 import autoprefixer from 'autoprefixer';
 
+dotenv.config();
+
+if (process.env.DEPLOY) {
+  process.env.API_URL = process.env.PROXY_API_URL;
+}
+
 const GLOBALS = {
-  'process.env.NODE_ENV': JSON.stringify('production'),
-  'process.env.API_URL': JSON.stringify('http://localhost:3000/api'),
+  'process.env.NODE_ENV': JSON.stringify(process.env.NODE_ENV || 'production'),
+  'process.env.API_URL': JSON.stringify(process.env.API_URL || 'http://localhost:3000/api'),
   __DEV__: false,
 };
 
@@ -22,7 +29,7 @@ export default {
   target: 'web',
   output: {
     path: path.resolve(__dirname, 'dist'),
-    publicPath: '/',
+    publicPath: './',
     filename: '[name].[chunkhash].js',
   },
   plugins: [

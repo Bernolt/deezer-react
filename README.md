@@ -1,10 +1,5 @@
 # Deezer React App
-
-## Proxy
-Deezer API doesn't have CORS enabled, so I use [this simple proxy](https://github.com/koenoe/deezer-react-proxy).
-At the time of writing I'm not convinced to mix server-side and client-side in one React app.
-In my opinion it's better to keep it separate. We might want to change from Deezer to Spotify in future and then
-we only have to change the proxy in theory.
+[Demo](https://koenromers.com/deezer-react/)
 
 ## Notes
 A Git commit template I personally like to follow: [link](https://gist.github.com/adeekshith/cd4c95a064977cdc6c50)
